@@ -1,0 +1,462 @@
+@charset "utf-8";
+
+/*========= ナビゲーションのためのCSS ===============*/
+
+#g-nav{
+    /*position:fixed;にし、z-indexの数値を小さくして最背面へ*/
+    position:fixed;
+  z-index: -1;
+  opacity: 0;/*はじめは透過0*/
+    /*ナビの位置と形状*/
+  top:0;
+  width:100%;
+    height: 100vh;/*ナビの高さ*/
+  background:rgba(0, 0, 0, 0.75);
+    /*動き*/
+  transition: all 0.3s;
+}
+
+/*アクティブクラスがついたら透過なしにして最前面へ*/
+#g-nav.panelactive{
+  opacity: 1;
+  z-index:999;
+}
+
+/*ナビゲーションの縦スクロール*/
+#g-nav.panelactive #g-nav-list{
+    /*ナビの数が増えた場合縦スクロール*/
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;/*表示する高さ*/
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/*ナビゲーション*/
+#g-nav ul {
+    display: none;
+    /*ナビゲーション天地中央揃え*/
+    position: absolute;
+    z-index: 999;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+#g-nav.panelactive ul {
+    display: block;
+}
+
+/*リストのレイアウト設定*/
+
+#g-nav li{
+  list-style: none;
+    text-align: center;
+}
+
+#g-nav li a {
+  color: #888888;
+  font-family: "Gill Sans", "游ゴシック体", sans-serif;
+  font-size: 2rem;
+  font-weight: normal;
+  text-decoration: none;
+  padding:15px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 3.0px;
+}
+
+#g-nav li a:hover {
+  color: #ffffff;
+}
+
+/*========= ボタンのためのCSS ===============*/
+.openbtn{
+  position:fixed;
+    z-index: 9999;/*ボタンを最前面に*/
+  top:10px;
+  right: 10px;
+  cursor: pointer;
+    width: 50px;
+    height:50px;
+}
+
+/*×に変化*/
+.openbtn span{
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+  background-color: #666;
+    width: 45%;
+  }
+
+#about .openbtn span{
+  display: inline-block;
+  transition: all .4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+background-color: #ffffff;
+  width: 45%;
+}
+
+#whats_muguet .openbtn span{
+  display: inline-block;
+  transition: all .4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+background-color: #ffffff;
+  width: 45%;
+}
+
+#news .openbtn span{
+  display: inline-block;
+  transition: all .4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+background-color: #ffffff;
+  width: 45%;
+}
+
+#link .openbtn span{
+  display: inline-block;
+  transition: all .4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+background-color: #ffffff;
+  width: 45%;
+}
+
+.openbtn span:nth-of-type(1) {
+  top:15px;
+}
+
+.openbtn span:nth-of-type(2) {
+  top:23px;
+}
+
+.openbtn span:nth-of-type(3) {
+  top:31px;
+}
+
+.openbtn.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.openbtn.active span:nth-of-type(3){
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+
+
+/*========= レイアウトのためのCSS ===============*/
+
+h1 {
+  font-family: "Gill Sans", "游ゴシック体", sans-serif;
+  font-weight: normal;
+  font-size:5rem;
+  line-height: 1.5;
+  color: #888888;
+  text-transform: none;
+  text-align: center;
+  letter-spacing: 10px;
+  margin: 0 0 30px 0;
+  margin-top: 15%;
+}
+
+a {
+  color: #888888;
+  text-decoration: none;
+}
+
+p {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 1.5rem;
+  color: #888888;
+  text-align: center;
+  font-weight: normal;
+  letter-spacing: 2.0px;
+  margin-top:20px;
+}
+
+small{
+  color:#fff;
+  display: block;
+  text-align: center;
+}
+
+#header{
+  width:100%;
+  background:#333;
+  color:#fff;
+  text-align: center;
+  padding: 0px;
+}
+
+section{
+  padding:100px 30px;
+  margin-bottom: -80px;
+}
+
+section:nth-child(2n){
+  background:#f3f3f3;
+}
+
+
+.big-bg {
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+
+#home {
+  background-image: url(../images/PKbokeIMGP05271690_TP_V4.jpg);
+  min-height: 100vh;
+}
+
+#home .page-title {
+  text-transform: none;
+}
+
+
+#home .top {
+  color: #ffffff;
+}
+
+#home .top:hover {
+  color: #ffffff;
+}
+
+
+#about {
+  background-image: url(../images/town321511005_TP_V.jpg);
+  height: 220px;
+  margin-bottom: 40px;
+}
+
+#about .page-title-others {
+  text-align: left;
+}
+
+#about .top {
+  color: #ffffff;
+}
+
+#about .top:hover {
+  color: #ffffff;
+}
+
+
+.post-info {
+  padding-top: 120px;
+  margin-left: 150px;
+  margin-right: 90px;
+  margin-bottom: 70px;
+  color: #888888;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: normal;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.post-info p {
+  margin-bottom: 2rem;
+  text-align: left;
+  font-size: 1.25rem;
+}
+
+.post-info a {
+  color: #888888;
+}
+
+.post-info a:hover {
+  color: #000000;
+}
+
+
+#about h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: 10px;
+  text-align: left;
+  margin-top: -20px;
+  margin-left: 120px;
+}
+
+#footer {
+  background: #888888;
+  text-align: center;
+  padding: 15px 0;
+}
+
+#footer p {
+  color: #fff;
+  font-size: 0.875rem;
+  margin-left: 50px;
+}
+
+
+.wrapper {
+max-width: 1100px;
+}
+
+
+/* What's Muguet? ------------ */
+#whats_muguet h2 {
+  text-align: center;
+}
+
+.muguet_img{
+  width: 500px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+
+#whats_muguet {
+  background-image: url(../images/town321511005_TP_V.jpg);
+  height: 220px;
+  margin-bottom: 40px;
+}
+
+#whats_muguet .page-title {
+  text-transform: none;
+}
+
+#whats_muguet h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: 10px;
+  text-align: left;
+  margin-top: -20px;
+  margin-left: 120px;
+}
+
+
+#news {
+  background-image: url(../images/town321511005_TP_V.jpg);
+  height: 220px;
+  margin-bottom: 40px;
+}
+
+#news .page-title {
+  text-transform: none;
+}
+
+#news h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: 10px;
+  text-align: left;
+  margin-top: -20px;
+  margin-left: 120px;
+}
+
+#news .top {
+  color: #ffffff;
+}
+
+#news .top:hover {
+  color: #ffffff;
+}
+
+#news .post-info {
+  margin-left: 100px;
+}
+
+.date_circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  flex-flow: column;
+  vertical-align: top;
+}
+
+.size_normal {
+  width: 80px;
+ height: 80px;
+}
+
+.circle_color {
+  color: #000000;
+  background: #888888;
+}
+
+#news h2 {
+  font-size: 3rem;
+  margin-top: 10px;
+}
+
+
+#link {
+  background-image: url(../images/town321511005_TP_V.jpg);
+  height: 220px;
+  margin-bottom: 60px;
+}
+
+#link .page-title {
+  text-transform: none;
+}
+
+#link h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: 10px;
+  text-align: left;
+  margin-top: -20px;
+  margin-left: 120px;
+}
+
+#link .top {
+  color: #ffffff;
+}
+
+#link .top:hover {
+  color: #ffffff;
+}
+
+#link p {
+  text-align: center;
+  line-height: 50px;
+}
+
+
+.header_icon {
+  position: absolute;
+  text-align: right;
+  margin-top:40px;
+  margin-right: 0px;
+  z-index: 9999;
+}
